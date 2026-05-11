@@ -173,8 +173,8 @@ function applyFilters() {
   );
 
   if (selectedStatus !== "All") {
-    filtered = filtered.filter((check) => check.priority === selectedStatus);
-  } // Intentional bug: status filter compares against priority.
+    filtered = filtered.filter((check) => check.status === selectedStatus);
+  }
 
   if (selectedPriority !== "All") {
     filtered = filtered.filter((check) => check.priority === selectedPriority);
