@@ -163,9 +163,14 @@ function applyFilters() {
   const selectedStatus = statusFilter.value;
   const selectedPriority = priorityFilter.value;
 
-  let filtered = checks.filter((check) =>
-    check.owner.toLowerCase().includes(searchTerm),
-  ); // Intentional bug: search should include title, category, priority, status, and owner.
+  let filtered = checks.filter(
+    (check) =>
+      check.title.toLowerCase().includes(searchTerm) ||
+      check.category.toLowerCase().includes(searchTerm) ||
+      check.priority.toLowerCase().includes(searchTerm) ||
+      check.status.toLowerCase().includes(searchTerm) ||
+      check.owner.toLowerCase().includes(searchTerm),
+  );
 
   if (selectedStatus !== "All") {
     filtered = filtered.filter((check) => check.priority === selectedStatus);
